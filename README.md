@@ -12,7 +12,7 @@ I intend to apply some of what is learned here towards a new project built on my
 
 -8 June 2022-
 
-- Login is currently functioning as intended once axios and show alert class aligned.....
+- Login is currently functioning as intended once axios and show alert class aligned.
 
 ---
 
