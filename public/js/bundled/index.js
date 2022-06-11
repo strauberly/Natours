@@ -148,7 +148,7 @@ var _polyfill = require("@babel/polyfill");
 var _leaflet = require("./leaflet");
 var _login = require("./login");
 var mapBox = document.getElementById("map");
-var loginForm = document.querySelector(".form");
+var loginForm = document.querySelector(".form--login");
 var logOutBtn = document.querySelector(".nav__el--logout");
 if (mapBox) {
     var locations = JSON.parse(mapBox.dataset.locations);
