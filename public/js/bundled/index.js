@@ -7251,14 +7251,17 @@ var logout = function() {
                     });
                 case 3:
                     res = _ctx.sent;
-                    res.data.status = "success";
-                    location.reload(true);
+                    if (res.data.status === "success") {
+                        (0, _alerts.showAlert)("success", "Logged out successfully");
+                        location.reload(true);
+                    }
+                    if (window.location.pathname === "/me") location.assign("/");
                     _ctx.next = 11;
                     break;
                 case 8:
                     _ctx.prev = 8;
                     _ctx.t0 = _ctx["catch"](0);
-                    showError("error", "Error logging out, try again");
+                    (0, _alerts.showAlert)("error", "Error logging out, try again");
                 case 11:
                 case "end":
                     return _ctx.stop();
