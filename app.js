@@ -75,13 +75,13 @@ const scriptSrcUrls = ['https://unpkg.com/', 'https://tile.openstreetmap.org'];
 const styleSrcUrls = [
   'https://unpkg.com/',
   'https://tile.openstreetmap.org',
-  'https://fonts.googleapis.com/',
+  'https://fonts.googleapis.com/'
 ];
 const connectSrcUrls = [
   'https://unpkg.com',
   'https://tile.openstreetmap.org',
   'https://bundle.js:*',
-  'ws://localhost:*/',
+  'ws://localhost:*/'
 ];
 const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
@@ -99,9 +99,9 @@ app.use(
       childSrc: ["'self'", 'blob:'],
       imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
       formAction: ["'self'"],
-      connectSrc: ["'self'", 'data:', 'blob:', ...connectSrcUrls],
+      connectSrc: ["'self'", 'data:', 'blob:', ...connectSrcUrls]
       // upgradeInsecureRequests: [],
-    },
+    }
   })
 );
 
@@ -111,7 +111,7 @@ if (process.env.NODE_ENV === 'development') {
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
-  message: 'Too many requests please try again later',
+  message: 'Too many requests please try again later'
 });
 
 // limit requests from same api
@@ -120,10 +120,10 @@ app.use('/api', limiter);
 // body parser
 app.use(
   express.json({
-    limit: '10kb',
+    limit: '10kb'
   })
 );
-
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // Data sanitization against query injection
@@ -141,8 +141,8 @@ app.use(
       'ratingsAverage',
       'maxGroupSize',
       'difficulty',
-      'price',
-    ],
+      'price'
+    ]
   })
 );
 
