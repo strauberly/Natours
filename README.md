@@ -16,6 +16,8 @@ I intend to apply some of what is learned here towards a new project built on my
 
 - Created user account area with authentication.
 
+- User can update some of their information.
+
 ---
 
 -8 June 2022-
