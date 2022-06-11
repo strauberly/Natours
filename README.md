@@ -14,6 +14,8 @@ I intend to apply some of what is learned here towards a new project built on my
 
 - Login,Logout, detail map and error rendering functional. Rebuilt repo in order to take into account ignoring large files as a result of our bundling.
 
+- Created user account area with authentication.
+
 ---
 
 -8 June 2022-
