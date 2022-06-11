@@ -10,6 +10,12 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-10 June 2022-
+
+- Login,Logout, detail map and error rendering functional. Rebuilt repo in order to take into account ignoring large files as a result of our bundling.
+
+---
+
 -8 June 2022-
 
 - Login is currently functioning as intended once axios and show alert class aligned.
