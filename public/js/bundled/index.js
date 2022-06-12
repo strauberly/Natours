@@ -143,13 +143,21 @@
     }
   }
 })({"1Fk4X":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _asyncToGeneratorJs = require("@swc/helpers/lib/_async_to_generator.js");
+var _asyncToGeneratorJsDefault = parcelHelpers.interopDefault(_asyncToGeneratorJs);
+var _regeneratorRuntime = require("regenerator-runtime");
+var _regeneratorRuntimeDefault = parcelHelpers.interopDefault(_regeneratorRuntime);
 /* eslint-disable */ var _runtime = require("regenerator-runtime/runtime");
 var _polyfill = require("@babel/polyfill");
 var _leaflet = require("./leaflet");
 var _login = require("./login");
+var _updateSettings = require("./updateSettings");
 var mapBox = document.getElementById("map");
 var loginForm = document.querySelector(".form--login");
 var logOutBtn = document.querySelector(".nav__el--logout");
+var userDataForm = document.querySelector(".form-user-data");
+var userPasswordForm = document.querySelector(".form-user-password");
 if (mapBox) {
     var locations = JSON.parse(mapBox.dataset.locations);
     (0, _leaflet.displayMap)(locations);
@@ -161,8 +169,49 @@ if (loginForm) loginForm.addEventListener("submit", function(e) {
     (0, _login.login)(email, password);
 });
 if (logOutBtn) logOutBtn.addEventListener("click", (0, _login.logout));
+if (userDataForm) userDataForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    (0, _updateSettings.updateSettings)({
+        name: name,
+        email: email
+    }, "data");
+});
+if (userPasswordForm) userPasswordForm.addEventListener("submit", function() {
+    var _ref = (0, _asyncToGeneratorJsDefault.default)((0, _regeneratorRuntimeDefault.default).mark(function _callee(e) {
+        var passwordCurrent, password, passwordConfirm;
+        return (0, _regeneratorRuntimeDefault.default).wrap(function _callee$(_ctx) {
+            while(1)switch(_ctx.prev = _ctx.next){
+                case 0:
+                    e.preventDefault();
+                    document.querySelector(".btn--save-password").textContent = "Updating...";
+                    passwordCurrent = document.getElementById("password-current").value;
+                    password = document.getElementById("password").value;
+                    passwordConfirm = document.getElementById("password-confirm").value;
+                    _ctx.next = 7;
+                    return (0, _updateSettings.updateSettings)({
+                        passwordCurrent: passwordCurrent,
+                        password: password,
+                        passwordConfirm: passwordConfirm
+                    }, "password");
+                case 7:
+                    document.querySelector(".btn--save-password").textContent = "SAVE PASSWORD";
+                    document.getElementById("password-current").value = "";
+                    document.getElementById("password").value = "";
+                    document.getElementById("password-confirm").value = "";
+                case 11:
+                case "end":
+                    return _ctx.stop();
+            }
+        }, _callee);
+    }));
+    return function(e) {
+        return _ref.apply(this, arguments);
+    };
+}());
 
-},{"@babel/polyfill":"4vPM4","regenerator-runtime/runtime":"kRewt","./login":"9z048","./leaflet":"6S9Yh"}],"4vPM4":[function(require,module,exports) {
+},{"@babel/polyfill":"4vPM4","regenerator-runtime/runtime":"kRewt","./login":"9z048","./leaflet":"6S9Yh","./updateSettings":"7hZp9","@swc/helpers/lib/_async_to_generator.js":"1YbPu","regenerator-runtime":"kRewt","@parcel/transformer-js/src/esmodule-helpers.js":"1CY57"}],"4vPM4":[function(require,module,exports) {
 "use strict";
 require("./noConflict");
 var _global = _interopRequireDefault(require("core-js/library/fn/global"));
@@ -8964,6 +9013,58 @@ var displayMap = function(locations) {
     map.scrollWheelZoom.disable();
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"1CY57"}]},["1Fk4X"], "1Fk4X", "parcelRequire11c7")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"1CY57"}],"7hZp9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateSettings", function() {
+    return updateSettings;
+});
+var _asyncToGeneratorJs = require("@swc/helpers/lib/_async_to_generator.js");
+var _asyncToGeneratorJsDefault = parcelHelpers.interopDefault(_asyncToGeneratorJs);
+var _regeneratorRuntime = require("regenerator-runtime");
+var _regeneratorRuntimeDefault = parcelHelpers.interopDefault(_regeneratorRuntime);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _alerts = require("./alerts");
+var updateSettings = function() {
+    var _ref = (0, _asyncToGeneratorJsDefault.default)((0, _regeneratorRuntimeDefault.default).mark(function _callee(data, type) {
+        var url, res;
+        return (0, _regeneratorRuntimeDefault.default).wrap(function _callee$(_ctx) {
+            while(1)switch(_ctx.prev = _ctx.next){
+                case 0:
+                    _ctx.prev = 0;
+                    url = type === "password" ? "http://localhost:3000/api/v1/users/updateMyPassword" : "http://localhost:3000/api/v1/users/updateMe";
+                    _ctx.next = 4;
+                    return (0, _axiosDefault.default)({
+                        method: "PATCH",
+                        url: url,
+                        data: data
+                    });
+                case 4:
+                    res = _ctx.sent;
+                    if (res.data.status === "success") (0, _alerts.showAlert)("success", "".concat(type.toUpperCase(), " updated successfully!"));
+                    _ctx.next = 11;
+                    break;
+                case 8:
+                    _ctx.prev = 8;
+                    _ctx.t0 = _ctx["catch"](0);
+                    (0, _alerts.showAlert)("error", _ctx.t0.response.data.message);
+                case 11:
+                case "end":
+                    return _ctx.stop();
+            }
+        }, _callee, null, [
+            [
+                0,
+                8
+            ]
+        ]);
+    }));
+    return function updateSettings(data, type) {
+        return _ref.apply(this, arguments);
+    };
+}();
+
+},{"@swc/helpers/lib/_async_to_generator.js":"1YbPu","regenerator-runtime":"kRewt","axios":"9GVfV","./alerts":"rcSBo","@parcel/transformer-js/src/esmodule-helpers.js":"1CY57"}]},["1Fk4X"], "1Fk4X", "parcelRequire11c7")
 
 //# sourceMappingURL=index.js.map
