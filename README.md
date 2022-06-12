@@ -18,6 +18,8 @@ I intend to apply some of what is learned here towards a new project built on my
 
 - User can update some of their information.
 
+- User can now update their password.
+
 ---
 
 -8 June 2022-
