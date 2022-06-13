@@ -10,6 +10,18 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-13 June 2022-
+
+- User can now update their profile image.
+
+- Made use of multer and sharp to add the image name to form data after storing image in memory and resizing.
+
+- Currently writes new file every time to file system. Creating a potential issue down the road. Future implementation should include deleting users old photo from filesystem.
+
+- Implemented uploading and processing multiple images multiple images, utilized in our tours section.
+
+---
+
 -10 June 2022-
 
 - Login,Logout, detail map and error rendering functional. Rebuilt repo in order to take into account ignoring large files as a result of our bundling.
