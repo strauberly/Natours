@@ -171,12 +171,15 @@ if (loginForm) loginForm.addEventListener("submit", function(e) {
 if (logOutBtn) logOutBtn.addEventListener("click", (0, _login.logout));
 if (userDataForm) userDataForm.addEventListener("submit", function(e) {
     e.preventDefault();
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    (0, _updateSettings.updateSettings)({
-        name: name,
-        email: email
-    }, "data");
+    var form = new FormData();
+    form.append("name", document.getElementById("name").value);
+    form.append("email", document.getElementById("email").value);
+    form.append("photo", document.getElementById("photo").files[0]);
+    console.log(form);
+    (0, _updateSettings.updateSettings)(form, "data");
+    window.setTimeout(function() {
+        location.reload(true);
+    }, 1000);
 });
 if (userPasswordForm) userPasswordForm.addEventListener("submit", function() {
     var _ref = (0, _asyncToGeneratorJsDefault.default)((0, _regeneratorRuntimeDefault.default).mark(function _callee(e) {
@@ -211,7 +214,7 @@ if (userPasswordForm) userPasswordForm.addEventListener("submit", function() {
     };
 }());
 
-},{"@babel/polyfill":"4vPM4","regenerator-runtime/runtime":"kRewt","./login":"9z048","./leaflet":"6S9Yh","./updateSettings":"7hZp9","@swc/helpers/lib/_async_to_generator.js":"1YbPu","regenerator-runtime":"kRewt","@parcel/transformer-js/src/esmodule-helpers.js":"1CY57"}],"4vPM4":[function(require,module,exports) {
+},{"@babel/polyfill":"4vPM4","regenerator-runtime/runtime":"kRewt","./login":"9z048","./leaflet":"6S9Yh","@swc/helpers/lib/_async_to_generator.js":"1YbPu","regenerator-runtime":"kRewt","./updateSettings":"7hZp9","@parcel/transformer-js/src/esmodule-helpers.js":"1CY57"}],"4vPM4":[function(require,module,exports) {
 "use strict";
 require("./noConflict");
 var _global = _interopRequireDefault(require("core-js/library/fn/global"));

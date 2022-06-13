@@ -1,6 +1,6 @@
 /* eslint-disable */
 export const displayMap = locations => {
-  const map = L.map('map', { zoomControl: false });
+  let map = L.map('map', { zoomControl: false });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:
