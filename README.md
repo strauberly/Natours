@@ -10,6 +10,12 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-14 June 2022-
+
+- Began lesson plan for email integration for users to reset their password and sign up but the solution from the program designer is to utilize send grid. It may be the only feasible option but I am going to spend some time looking elsewhere for a solution that provides the same functionality.
+
+---
+
 -13 June 2022-
 
 - User can now update their profile image.
