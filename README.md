@@ -10,6 +10,12 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-16 June 2022-
+
+- Began implementation of Stripe into the backend for card payment processing.
+
+---
+
 -15 June 2022-
 
 - Email functionality in working order. Implemented utilizing SendInBlue.
