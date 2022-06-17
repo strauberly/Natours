@@ -10,6 +10,22 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-17 June 2022-
+
+- Front end now creates a checkout session and connects with backend.
+
+- Booking model created.
+
+- If user successfully checkout a new booking is created in our database.
+
+- Implemented ability for user to see all of their booked tours.
+
+- Full CRUD for bookings implemented, down to code clean up and deployment a proper readme.
+
+- Cleaned up a few files and attempted to address build error.
+
+---
+
 -16 June 2022-
 
 - Began implementation of Stripe into the backend for card payment processing.
