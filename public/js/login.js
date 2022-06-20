@@ -17,7 +17,7 @@ export const login = async (email, password) => {
       showAlert('success', 'Logged in successfully!');
       window.setTimeout(() => {
         location.assign('/');
-      }, 1500);
+      }, 1000);
     }
 
     // console.log(res);
@@ -33,10 +33,10 @@ export const logout = async () => {
       url: '/api/v1/users/logout'
     });
     if (res.data.status === 'success') {
-      showAlert('success', 'Logged out successfully');
+      // showAlert('success', 'Logged out successfully');
       location.reload(true);
     }
-    if (window.location.pathname === '/me' || '/my-tours') location.assign('/');
+    //   if (window.location.pathname === '/me' || '/my-tours') location.assign('/');
   } catch (err) {
     showAlert('error', 'Error logging out, try again');
   }
