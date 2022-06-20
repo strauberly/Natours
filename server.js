@@ -50,6 +50,13 @@ process.on('unhandledRejection', err => {
   });
 });
 
+process.on('SIGTERM', () => {
+  console.log('sigterm received, slow shutdown enabled');
+  server.close(() => {
+    console.log('process terminated');
+  });
+});
+
 //  Instructor admits utilising such practice is debatable
 // in regards to best practice so I am excluding it//
 

@@ -10,6 +10,12 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-20 June 2022-
+
+Successfully deployed application to Heroku and renamed the url from command line. Fixed a logout bug.
+
+---
+
 -17 June 2022-
 
 - Front end now creates a checkout session and connects with backend.
