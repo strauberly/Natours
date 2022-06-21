@@ -10,6 +10,14 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-21 June 2022-
+
+- Implemented cors
+
+-
+
+---
+
 -20 June 2022-
 
 Successfully deployed application to Heroku and renamed the url from command line. Fixed a logout bug.
