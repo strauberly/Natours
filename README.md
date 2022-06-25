@@ -10,6 +10,13 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-25 June 2022-
+
+- Added completed order confirmation by creating alert middleware.
+- Implemented changes to alerts on screen.
+
+---
+
 -21 June 2022-
 
 - Implemented cors
