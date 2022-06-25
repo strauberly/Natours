@@ -14,7 +14,7 @@ I intend to apply some of what is learned here towards a new project built on my
 
 - Implemented cors
 
--
+- Began implementation of stripe webhooks, check env config
 
 ---
 
