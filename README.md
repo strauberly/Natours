@@ -14,6 +14,7 @@ I intend to apply some of what is learned here towards a new project built on my
 
 - Added completed order confirmation by creating alert middleware.
 - Implemented changes to alerts on screen.
+- Will next create implementation for creating a new user and then proper read me and update this file to a dev journal designation.
 
 ---
 
