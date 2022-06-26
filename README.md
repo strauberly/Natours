@@ -10,6 +10,14 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-26 June 2022-
+
+- Implementation for signing up a new user completed.
+- Next tasks will include creating a proper read me and then further development as time allows.
+- Thank you for following this project. :)
+
+---
+
 -25 June 2022-
 
 - Added completed order confirmation by creating alert middleware.
