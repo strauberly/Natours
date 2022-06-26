@@ -34,7 +34,7 @@ export const logout = async () => {
     });
     if (res.data.status === 'success') {
       // showAlert('success', 'Logged out successfully');
-      location.reload(true);
+      location.replace('/');
     }
     //   if (window.location.pathname === '/me' || '/my-tours') location.assign('/');
   } catch (err) {

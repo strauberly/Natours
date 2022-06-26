@@ -3,11 +3,13 @@ import 'regenerator-runtime/runtime';
 import '@babel/polyfill';
 import { displayMap } from './leaflet';
 import { login, logout } from './login';
+import { signup } from './signup';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
 import { showAlert } from './alerts';
 
 const mapBox = document.getElementById('map');
+const signUpForm = document.querySelector('.form--signup');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
@@ -17,6 +19,17 @@ const bookBtn = document.getElementById('book-tour');
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
+}
+
+if (signUpForm) {
+  signUpForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+    signup(name, email, password, passwordConfirm);
+  });
 }
 
 if (loginForm)
