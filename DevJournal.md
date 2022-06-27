@@ -1,6 +1,6 @@
 # natours
 
-This README will serve as a dev journal as I work on this project.
+This is the development journal as I work on this project.
 
 This course project is created with MongoDB, Express, Node and other tools.
 Created with starter files prepared by
@@ -10,11 +10,9 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
--26 June 2022-
+-27 June 2022-
 
-- Implementation for signing up a new user completed.
-- Next tasks will include creating a proper read me and then further development as time allows.
-- Thank you for following this project. :)
+- Began creation of detailed README.
 
 ---
 
