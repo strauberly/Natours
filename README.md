@@ -4,7 +4,7 @@
 
 ---
 
-## Natours is an e-commerce website application built for a fictional company as a portfolio piece from a course I took on full-stack development. It is a demonstratable example of fullstack development knowledge for consideration by potential employers.
+## Natours is an e-commerce website application built for a fictional company as a portfolio piece and is a demonstrable example of fullstack development knowledge for consideration by future employers.
 
 &nbsp;
 
@@ -12,7 +12,7 @@
 
 &nbsp;
 
-## It is dynamically populated through an API from a database I created and allows a user to view information for the tours offered by the company, create an updatable account, purchase a tour, and view their itineraries.
+## It is dynamically populated through an API from a remote database I created and allows a user to view information for the tours offered by the company, create an updatable account, purchase a tour, and view their itineraries.
 
 &nbsp;
 
@@ -27,6 +27,8 @@
 Programmed by: Adam Straub
 
 Product owner and materials supplied by: Jonas Schmedtmann
+
+https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/
 
 ---
 
