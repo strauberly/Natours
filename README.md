@@ -38,7 +38,7 @@ Product owner and materials supplied by: Jonas Schmedtmann
 
 [II. Tech Stack Description](#ii-tech-stack-description)
 
-[III. Package Layout](#iii-package-layout)
+[III. File Layout](#iii-file-layout)
 
 [IV. Future Implementation Plans](#iv-future-implementation-plans)
 
@@ -48,11 +48,11 @@ Product owner and materials supplied by: Jonas Schmedtmann
 
 # I. Use Instructions
 
-Upon landing the application loading a user may click on a tour card to view more detailed information about a tour. If a user would like to book a tour, they will either login to their account or create an account if they do not currently have one.
+Upon the application loading, a user may click on a tour card to view more detailed information about a tour. If a user would like to book a tour, they will either log into their account or create an account if they do not currently have one.
 
-They will then be allowed to click a book tour button that will then direct them to our checkout endpoint and complete the stripe checkout form. They will then be directed back to the main page.
+Then the user will then be allowed to click a book tour button that will then direct them to our checkout endpoint and complete the stripe checkout form. They will then be directed back to the main page.
 
-If a user creates an account they have the ability to view and update their information through an icon link created at the top of the page. From the landing page of their account they can also view their trips.
+If a user creates an account they have the ability to view and update their information through an icon link created at the upper right of the page. From the landing page of their account they can also view their trips purchased.
 
 If you believe these instructions could use more clarification please feel free to reach out and I will look into a more thorough explanation in order to help prevent any confusion superduper.natours@manyme.com.
 
@@ -99,7 +99,19 @@ If you believe these instructions could use more clarification please feel free 
 
 &nbsp;
 
-# III. Package Layout
+# III. File Layout
+
+| Folder / Class / File      | Description                                                                                                                                                       |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Folder: &nbsp; controllers | Contains controllers pertaining to authorization, bookings, error handling, database requests, reviews, tours, users, and page views.                             |
+| Folder: &nbsp; dev-data    | Contains starter files for development (images, database content, view templates) as well as scripts created for importing data from file to our remote database. |
+| Folder: &nbsp; models      | Contains object models for bookings, reviews, tours, and users.                                                                                                   |
+| Folder: &nbsp; public      | Contains bundled javascript files, images and css available outside of the application. Also contains html files referenced during creation of pug files.         |
+| Folder: &nbsp; routes      | Contains files defining routes and access authorization to those routes pertaining to bookings, reviews, tours, users, and page views.                            |
+| Folder: &nbsp; utils       | Contains helper files pertaining to API features, e-mail functions, application errors.                                                                           |
+| Folder: &nbsp; views       | Contains files written with pug that provide our user interface.                                                                                                  |
+
+Additional files for spooling up a web server, package management, environment configurations, and middleware management.
 
 [Table of Contents](#table-of-contents)
 
@@ -108,6 +120,8 @@ If you believe these instructions could use more clarification please feel free 
 &nbsp;
 
 # IV. Future Implementation Plans
+
+Future development will revolve around connecting more of the functionality of our API into the user experience such as an admin being able to use the GUI to create a new tour, guides being able to see who has booked one of their tours nad contact information for those persons, customers ability to leave a review once their trip has concluded and more. Lots to do still! ^\_^
 
 [Table of Contents](#table-of-contents)
 
