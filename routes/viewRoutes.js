@@ -8,7 +8,6 @@ router.use(viewsController.alerts);
 
 router.get(
   '/',
-  // bookingController.createBookingCheckout,
   authController.isLoggedIn,
   viewsController.getOverview
 );

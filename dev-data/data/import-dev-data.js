@@ -19,22 +19,9 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false,
+    useFindAndModify: false
   })
-  .then(() =>
-    // console.log(con.connections);
-    console.log('DB connection successful')
-  );
-
-// mongoose
-//   .connect(process.env.DATABASE_LOCAL, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false,
-//   })
-//   .then(() => console.log('DB connection successful'));
-
-//   read json file
+  .then(() => console.log('DB connection successful'));
 
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
 
@@ -78,5 +65,3 @@ if (process.argv[2] === '--import') {
 }
 
 console.log(process.argv);
-
-// const port = process.env.PORT || 3000;

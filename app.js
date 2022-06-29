@@ -33,53 +33,6 @@ app.use(cors());
 app.options('*', cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
-// set security http headers
-
-// const scriptSrcUrls = ['https://unpkg.com/', 'https://tile.openstreetmap.org'];
-// const styleSrcUrls = [
-//   'https://unpkg.com/',
-//   'https://tile.openstreetmap.org',
-//   'https://fonts.googleapis.com/',
-// ];
-// const connectSrcUrls = ['https://unpkg.com', 'https://tile.openstreetmap.org'];
-// const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
-
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     directives: {
-//       defaultSrc: ["'self'", 'data:', 'blob:'],
-
-//       baseUri: ["'self'"],
-
-//       fontSrc: ["'self'", 'https:', 'data:'],
-
-//       scriptSrc: ["'self'", 'https://*.cloudflare.com'],
-
-//       // scriptSrc: ["'self'", 'https://*.stripe.com'],
-
-//       // scriptSrc: ["'self'", 'http:', 'https://*.mapbox.com', 'data:'],
-
-//       frameSrc: ["'self'", 'https://*.stripe.com'],
-
-//       objectSrc: ["'none'"],
-
-//       styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
-
-//       workerSrc: ["'self'", 'data:', 'blob:'],
-
-//       childSrc: ["'self'", 'blob:'],
-
-//       imgSrc: ["'self'", 'data:', 'blob:'],
-
-//       connectSrc: ["'self'", 'blob:', 'https://*.mapbox.com'],
-
-//       // upgradeInsecureRequests: ['true'],
-//     },
-//   })
-// );
-
-// app.use(helmet());
-// Development logging
 
 const scriptSrcUrls = ['https://unpkg.com/', 'https://tile.openstreetmap.org'];
 const styleSrcUrls = [

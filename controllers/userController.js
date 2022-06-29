@@ -6,15 +6,6 @@ const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 const { async } = require('regenerator-runtime');
 
-// const multerStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'public/img/users');
-//   },
-//   filename: (req, res, cb) => {
-//     const ext = file.mimetype.split('/')[1];
-//     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
-//   }
-// });
 
 const multerStorage = multer.memoryStorage();
 
@@ -56,18 +47,6 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
-// exports.getAllUsers = catchAsync(async (req, res, next) => {
-//   const users = await User.find();
-
-//   // send response
-//   res.status(200).json({
-//     status: 'success',
-//     results: users.length,
-//     data: {
-//       users,
-//     },
-//   });
-// });
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
@@ -114,13 +93,6 @@ exports.deactivateMyAccount = catchAsync(async (req, res, next) => {
   });
 });
 
-// exports.getUser = (req, res) => {
-//   res.status(500).json({
-//     status: 'error',
-//     message: 'route not yet defined',
-//   });
-// };
-
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
@@ -128,21 +100,8 @@ exports.createUser = (req, res) => {
   });
 };
 
-// exports.updateUser = (req, res) => {
-//   res.status(500).json({
-//     status: 'error',
-//     message: 'route not yet defined',
-//   });
-// };
 // Do not update passwords with this
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
 exports.updateUser = factory.updateOne(User);
 exports.deleteUser = factory.deleteOne(User);
-
-// exports.deleteUser = (req, res) => {
-//   res.status(500).json({
-//     status: 'error',
-//     message: 'route not yet defined',
-//   });
-// };

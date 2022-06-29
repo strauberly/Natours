@@ -9,9 +9,9 @@ export const displayMap = locations => {
 
   var greenIcon = L.icon({
     iconUrl: '/img/pin.png',
-    iconSize: [32, 40], // size of the icon
-    iconAnchor: [16, 45], // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -50] // point from which the popup should open relative to the iconAnchor
+    iconSize: [32, 40],
+    iconAnchor: [16, 45],
+    popupAnchor: [0, -50]
   });
 
   const points = [];

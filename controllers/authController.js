@@ -14,7 +14,6 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, req, res) => {
   const token = signToken(user._id);
-
   res.cookie('jwt', token, {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
@@ -22,19 +21,8 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     secure: req.secure || req.headers('x-forwarded-proto') === 'https'
   });
-
   user.password = undefined;
-
-  // const cookieOptions = {
-  //   expires: new Date(
-  //     Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-  //   ),
-  //   httpOnly: true,
-  //   secure: req.secure || req.headers('x-forwarded-proto') === 'https'
-  // };
-
   // remove password from output
-
   res.status(statusCode).json({
     status: 'success',
     token,
@@ -51,33 +39,20 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm
   });
-
   const url = `${req.protocol}://${req.get('host')}/me`;
-  // console.log(url);
   await new Email(newUser, url).sendWelcome();
-
-  // name: req.body.name,
-  // email: req.body.email,
-  // password: req.body.password,
-  // passwordConfirm: req.body.passwordConfirm
-  // });
-
   createSendToken(newUser, 201, req, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
-
   if (!email || !password) {
     return next(new AppError('Provide email and password!', 400));
   }
-
   const user = await User.findOne({ email }).select('+password');
-
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(new AppError('Incorrect email or password', 401));
   }
-
   createSendToken(user, 200, req, res);
 });
 
@@ -186,14 +161,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   const resetToken = user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
-
-  // const message = `If you forgot your password, submit a PATCH request with your new password and password confirm to: ${resetURL}.\n Else ignore this mail!`;
+  const message = `If you forgot your password, submit a request with your new password to: ${resetURL}.\n Else ignore this email!`;
   try {
-    // await sendEmail({
-    //   email: user.email,
-    //   subject: 'Your password reset token(valid for 10 min)',
-    //   message
-    // });
+    await sendEmail({
+      email: user.email,
+      subject: 'Your password reset token(valid for 10 min)',
+      message
+    });
 
     // send token as email
     const resetURL = `${req.protocol}://${req.get(
