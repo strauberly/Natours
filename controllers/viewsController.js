@@ -17,10 +17,6 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   // 1 get tour data
   const tours = await Tour.find();
 
-  // 2 build template
-
-  // 3 render template using tour data from step one
-
   res.status(200).render('overview', {
     title: 'All Tours',
     tours
@@ -37,8 +33,6 @@ exports.getTour = catchAsync(async (req, res, next) => {
     return next(new AppError('There is no tour with that name.', 404));
   }
 
-  // 2) Build template
-  // 3) Render template using data from 1)
   res.status(200).render('tour', {
     title: `${tour.name} Tour`,
     tour

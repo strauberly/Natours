@@ -21,8 +21,6 @@ mongoose
   .connect(DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-    // useCreateIndex: true,
-    // useFindAndModify: false,
   })
   .then(() =>
     // console.log(con.connections);
@@ -36,10 +34,6 @@ const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log(`app running on port ${port}...`);
 });
-
-// app.listen(port, () => {
-//   console.log(`app running on port ${port}...`);
-// });
 
 process.on('unhandledRejection', err => {
   console.log(err.name, err.message);
@@ -56,21 +50,3 @@ process.on('SIGTERM', () => {
     console.log('process terminated');
   });
 });
-
-//  Instructor admits utilising such practice is debatable
-// in regards to best practice so I am excluding it//
-
-// const server = app.listen(port, () => {
-//   console.log(`app running on port ${port}...`);
-// });
-// const server = app.listen(port, () => {
-//   console.log(`app running on port ${port}...`);
-// });
-
-// process.on('uncaughtException', (err) => {
-//   console.log('Uncaught Exception!!! Shutting down...');
-//   console.log(err.name, err.message);
-//   server.close(() => {
-//     process.exit(1);
-//   });
-// });
