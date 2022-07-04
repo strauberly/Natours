@@ -45,7 +45,6 @@ const userSchema = new mongoose.Schema({
   passwordChangedAt: Date,
   passwordResetToken: String,
   passwordResetExpires: Date,
-  // course instructor describes this in a manner that verifies this as a dishonest policy and I do not support it therefore I have left off select.
   active: {
     type: Boolean,
     default: true
