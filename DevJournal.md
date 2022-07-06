@@ -10,6 +10,12 @@ I intend to apply some of what is learned here towards a new project built on my
 
 ---
 
+-5 July 2022-
+
+- Default image set at creation of a new user.
+
+---
+
 -28 June 2022-
 
 - README file completed.
